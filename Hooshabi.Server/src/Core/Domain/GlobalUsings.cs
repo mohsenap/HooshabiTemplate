@@ -1,0 +1,1 @@
+﻿global using Hooshabi.Server.Domain.Common.Contracts;

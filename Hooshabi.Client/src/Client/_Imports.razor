@@ -1,0 +1,41 @@
+﻿@using System.Security.Claims
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using Microsoft.AspNetCore.Components.WebAssembly.Http
+@using Microsoft.Extensions.Configuration
+@using Microsoft.Extensions.DependencyInjection
+@using Microsoft.Extensions.Localization
+@using Microsoft.JSInterop
+@using Hooshabi.Client.Client
+@using Hooshabi.Client.Client.Shared
+@using Hooshabi.Client.Client.Pages.Authentication
+@using Hooshabi.Client.Client.Pages.Multitenancy
+@using Hooshabi.Client.Client.Components.Common
+@using Hooshabi.Client.Client.Components.EntityTable
+@using Hooshabi.Client.Client.Components.Localization
+@using Hooshabi.Client.Client.Components.Notifications
+@using Hooshabi.Client.Client.Components.ThemeManager
+@using Hooshabi.Client.Client.Infrastructure.ApiClient
+@using Hooshabi.Client.Client.Infrastructure.Auth
+@using Hooshabi.Client.Client.Infrastructure.Common
+@using Hooshabi.Client.Client.Infrastructure.Notifications
+@using Hooshabi.Client.Client.Infrastructure.Preferences
+@using FSH.WebApi.Shared.Authorization
+@using Blazored.LocalStorage
+@using Mapster
+@using MediatR.Courier
+@using MudBlazor
+
+@attribute [Authorize]
+
+@inject NavigationManager Navigation
+@inject ISnackbar Snackbar
+@inject IDialogService DialogService
+@inject IConfiguration Config
+@inject IClientPreferenceManager ClientPreferences

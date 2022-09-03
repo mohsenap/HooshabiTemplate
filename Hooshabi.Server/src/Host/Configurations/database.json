@@ -1,0 +1,6 @@
+{
+  "DatabaseSettings": {
+    "DBProvider": "mssql",
+    "ConnectionString": "server=.;uid=sa;pwd=mohsen;database=Hooshabi;MultipleActiveResultSets=True"
+  }
+}
