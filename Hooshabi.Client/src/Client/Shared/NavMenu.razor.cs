@@ -1,6 +1,6 @@
 ﻿using Hooshabi.Client.Client.Infrastructure.Auth;
 using Hooshabi.Client.Client.Infrastructure.Common;
-using FSH.WebApi.Shared.Authorization;
+using Hooshabi.WebApi.Shared.Authorization;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -28,12 +28,12 @@ public partial class NavMenu
     {
         _hangfireUrl = Config[ConfigNames.ApiBaseUrl] + "jobs";
         var user = (await AuthState).User;
-        _canViewHangfire = await AuthService.HasPermissionAsync(user, FSHAction.View, FSHResource.Hangfire);
-        _canViewDashboard = await AuthService.HasPermissionAsync(user, FSHAction.View, FSHResource.Dashboard);
-        _canViewRoles = await AuthService.HasPermissionAsync(user, FSHAction.View, FSHResource.Roles);
-        _canViewUsers = await AuthService.HasPermissionAsync(user, FSHAction.View, FSHResource.Users);
-        _canViewProducts = await AuthService.HasPermissionAsync(user, FSHAction.View, FSHResource.Products);
-        _canViewBrands = await AuthService.HasPermissionAsync(user, FSHAction.View, FSHResource.Brands);
-        _canViewTenants = await AuthService.HasPermissionAsync(user, FSHAction.View, FSHResource.Tenants);
+        _canViewHangfire = await AuthService.HasPermissionAsync(user, HooshabiAction.View, HooshabiResource.Hangfire);
+        _canViewDashboard = await AuthService.HasPermissionAsync(user, HooshabiAction.View, HooshabiResource.Dashboard);
+        _canViewRoles = await AuthService.HasPermissionAsync(user, HooshabiAction.View, HooshabiResource.Roles);
+        _canViewUsers = await AuthService.HasPermissionAsync(user, HooshabiAction.View, HooshabiResource.Users);
+        _canViewProducts = await AuthService.HasPermissionAsync(user, HooshabiAction.View, HooshabiResource.Products);
+        _canViewBrands = await AuthService.HasPermissionAsync(user, HooshabiAction.View, HooshabiResource.Brands);
+        _canViewTenants = await AuthService.HasPermissionAsync(user, HooshabiAction.View, HooshabiResource.Tenants);
     }
 }

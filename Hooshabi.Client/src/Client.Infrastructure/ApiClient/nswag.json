@@ -93,7 +93,7 @@
       "enumNameGeneratorType": null,
       "serviceHost": null,
       "serviceSchemes": null,
-      "output": "FSHApi.cs",
+      "output": "HooshabiApi.cs",
       "newLineBehavior": "Auto"
     }
   }

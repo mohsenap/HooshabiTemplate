@@ -2,7 +2,7 @@
 using Hooshabi.Client.Client.Infrastructure.ApiClient;
 using Hooshabi.Client.Client.Infrastructure.Auth;
 using Hooshabi.Client.Client.Shared;
-using FSH.WebApi.Shared.Authorization;
+using Hooshabi.WebApi.Shared.Authorization;
 using Mapster;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
@@ -32,8 +32,8 @@ public partial class Tenants
         Context = new(
             entityName: L["Tenant"],
             entityNamePlural: L["Tenants"],
-            entityResource: FSHResource.Tenants,
-            searchAction: FSHAction.View,
+            entityResource: HooshabiResource.Tenants,
+            searchAction: HooshabiAction.View,
             deleteAction: string.Empty,
             updateAction: string.Empty,
             fields: new()
@@ -53,8 +53,8 @@ public partial class Tenants
             exportAction: string.Empty);
 
         var state = await AuthState;
-        _canUpgrade = await AuthService.HasPermissionAsync(state.User, FSHAction.UpgradeSubscription, FSHResource.Tenants);
-        _canModify = await AuthService.HasPermissionAsync(state.User, FSHAction.Update, FSHResource.Tenants);
+        _canUpgrade = await AuthService.HasPermissionAsync(state.User, HooshabiAction.UpgradeSubscription, HooshabiResource.Tenants);
+        _canModify = await AuthService.HasPermissionAsync(state.User, HooshabiAction.Update, HooshabiResource.Tenants);
     }
 
     private void ViewTenantDetails(string id)

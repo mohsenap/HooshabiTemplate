@@ -1,7 +1,7 @@
 ﻿using Hooshabi.Client.Client.Infrastructure.ApiClient;
 using Hooshabi.Client.Client.Infrastructure.Auth;
 using Hooshabi.Client.Client.Shared;
-using FSH.WebApi.Shared.Authorization;
+using Hooshabi.WebApi.Shared.Authorization;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -33,8 +33,8 @@ public partial class UserRoles
     protected override async Task OnInitializedAsync()
     {
         var state = await AuthState;
-        _canEditUsers = await AuthService.HasPermissionAsync(state.User, FSHAction.Update, FSHResource.Users);
-        _canSearchRoles = await AuthService.HasPermissionAsync(state.User, FSHAction.View, FSHResource.UserRoles);
+        _canEditUsers = await AuthService.HasPermissionAsync(state.User, HooshabiAction.Update, HooshabiResource.Users);
+        _canSearchRoles = await AuthService.HasPermissionAsync(state.User, HooshabiAction.View, HooshabiResource.UserRoles);
 
         if (await ApiHelper.ExecuteCallGuardedAsync(
                 () => UsersClient.GetByIdAsync(Id), Snackbar)

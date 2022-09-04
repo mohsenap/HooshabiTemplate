@@ -1,7 +1,7 @@
 ﻿using Hooshabi.Client.Client.Components.EntityTable;
 using Hooshabi.Client.Client.Infrastructure.ApiClient;
 using Hooshabi.Client.Client.Infrastructure.Common;
-using FSH.WebApi.Shared.Authorization;
+using Hooshabi.WebApi.Shared.Authorization;
 using Mapster;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
@@ -24,7 +24,7 @@ public partial class Products
         Context = new(
             entityName: L["Product"],
             entityNamePlural: L["Products"],
-            entityResource: FSHResource.Products,
+            entityResource: HooshabiResource.Products,
             fields: new()
             {
                 new(prod => prod.Id, L["Id"], "Id"),

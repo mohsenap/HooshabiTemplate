@@ -2,7 +2,7 @@
 using Hooshabi.Client.Client.Components.EntityTable;
 using Hooshabi.Client.Client.Infrastructure.ApiClient;
 using Hooshabi.Client.Client.Infrastructure.Auth;
-using FSH.WebApi.Shared.Authorization;
+using Hooshabi.WebApi.Shared.Authorization;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -36,14 +36,14 @@ public partial class Users
     protected override async Task OnInitializedAsync()
     {
         var user = (await AuthState).User;
-        _canExportUsers = await AuthService.HasPermissionAsync(user, FSHAction.Export, FSHResource.Users);
-        _canViewRoles = await AuthService.HasPermissionAsync(user, FSHAction.View, FSHResource.UserRoles);
+        _canExportUsers = await AuthService.HasPermissionAsync(user, HooshabiAction.Export, HooshabiResource.Users);
+        _canViewRoles = await AuthService.HasPermissionAsync(user, HooshabiAction.View, HooshabiResource.UserRoles);
 
         Context = new(
             entityName: L["User"],
             entityNamePlural: L["Users"],
-            entityResource: FSHResource.Users,
-            searchAction: FSHAction.View,
+            entityResource: HooshabiResource.Users,
+            searchAction: HooshabiAction.View,
             updateAction: string.Empty,
             deleteAction: string.Empty,
             fields: new()

@@ -5,7 +5,7 @@ using System.Text.Json.Nodes;
 using Hooshabi.Client.Client.Infrastructure.Auth;
 using Hooshabi.Client.Client.Infrastructure.Common;
 using Hooshabi.Client.Client.Infrastructure.Notifications;
-using FSH.WebApi.Shared.Notifications;
+using Hooshabi.WebApi.Shared.Notifications;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.SignalR.Client;

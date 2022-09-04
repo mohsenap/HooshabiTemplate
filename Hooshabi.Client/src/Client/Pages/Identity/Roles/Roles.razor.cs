@@ -1,7 +1,7 @@
 ﻿using Hooshabi.Client.Client.Components.EntityTable;
 using Hooshabi.Client.Client.Infrastructure.ApiClient;
 using Hooshabi.Client.Client.Infrastructure.Auth;
-using FSH.WebApi.Shared.Authorization;
+using Hooshabi.WebApi.Shared.Authorization;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -24,13 +24,13 @@ public partial class Roles
     protected override async Task OnInitializedAsync()
     {
         var state = await AuthState;
-        _canViewRoleClaims = await AuthService.HasPermissionAsync(state.User, FSHAction.View, FSHResource.RoleClaims);
+        _canViewRoleClaims = await AuthService.HasPermissionAsync(state.User, HooshabiAction.View, HooshabiResource.RoleClaims);
 
         Context = new(
             entityName: L["Role"],
             entityNamePlural: L["Roles"],
-            entityResource: FSHResource.Roles,
-            searchAction: FSHAction.View,
+            entityResource: HooshabiResource.Roles,
+            searchAction: HooshabiAction.View,
             fields: new()
             {
                 new(role => role.Id, L["Id"]),
@@ -47,8 +47,8 @@ public partial class Roles
             updateFunc: async (_, role) => await RolesClient.RegisterRoleAsync(role),
             deleteFunc: async id => await RolesClient.DeleteAsync(id),
             hasExtraActionsFunc: () => _canViewRoleClaims,
-            canUpdateEntityFunc: e => !FSHRoles.IsDefault(e.Name),
-            canDeleteEntityFunc: e => !FSHRoles.IsDefault(e.Name),
+            canUpdateEntityFunc: e => !HooshabiRoles.IsDefault(e.Name),
+            canDeleteEntityFunc: e => !HooshabiRoles.IsDefault(e.Name),
             exportAction: string.Empty);
     }
 

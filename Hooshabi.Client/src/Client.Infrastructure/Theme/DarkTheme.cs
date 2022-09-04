@@ -37,7 +37,7 @@ public class DarkTheme : MudTheme
             DefaultBorderRadius = "5px",
         };
 
-        Typography = CustomTypography.FSHTypography;
+        Typography = CustomTypography.HooshabiTypography;
         Shadows = new Shadow();
         ZIndex = new ZIndex() { Drawer = 1300 };
     }

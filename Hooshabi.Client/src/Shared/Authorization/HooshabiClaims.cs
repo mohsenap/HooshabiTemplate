@@ -1,6 +1,6 @@
-﻿namespace FSH.WebApi.Shared.Authorization;
+﻿namespace Hooshabi.WebApi.Shared.Authorization;
 
-public static class FSHClaims
+public static class HooshabiClaims
 {
     public const string Tenant = "tenant";
     public const string Fullname = "fullName";

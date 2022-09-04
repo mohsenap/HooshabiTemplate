@@ -4,7 +4,7 @@ namespace Hooshabi.Client.Client.Infrastructure.Theme;
 
 public static class CustomTypography
 {
-    public static Typography FSHTypography => new Typography()
+    public static Typography HooshabiTypography => new Typography()
     {
         Default = new Default()
         {

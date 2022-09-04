@@ -3,7 +3,7 @@ using Hooshabi.Client.Client.Infrastructure.ApiClient;
 using Hooshabi.Client.Client.Infrastructure.Auth;
 using Hooshabi.Client.Client.Infrastructure.Notifications;
 using Hooshabi.Client.Client.Infrastructure.Preferences;
-using FSH.WebApi.Shared.Authorization;
+using Hooshabi.WebApi.Shared.Authorization;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 using MudBlazor;
@@ -13,7 +13,7 @@ namespace Hooshabi.Client.Client.Infrastructure;
 
 public static class Startup
 {
-    private const string ClientName = "FullStackHero.API";
+    private const string ClientName = "Hooshabi.API";
 
     public static IServiceCollection AddClientServices(this IServiceCollection services, IConfiguration config) =>
         services
@@ -47,9 +47,9 @@ public static class Startup
 
     private static void RegisterPermissionClaims(AuthorizationOptions options)
     {
-        foreach (var permission in FSHPermissions.All)
+        foreach (var permission in HooshabiPermissions.All)
         {
-            options.AddPolicy(permission.Name, policy => policy.RequireClaim(FSHClaims.Permission, permission.Name));
+            options.AddPolicy(permission.Name, policy => policy.RequireClaim(HooshabiClaims.Permission, permission.Name));
         }
     }
 

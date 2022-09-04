@@ -2,7 +2,7 @@
 using Hooshabi.Client.Client.Infrastructure.Auth;
 using Hooshabi.Client.Client.Infrastructure.Common;
 using Hooshabi.Client.Client.Shared;
-using FSH.WebApi.Shared.Authorization;
+using Hooshabi.WebApi.Shared.Authorization;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -68,7 +68,7 @@ public partial class UserProfile
         }
 
         var state = await AuthState;
-        _canToggleUserStatus = await AuthService.HasPermissionAsync(state.User, FSHAction.Update, FSHResource.Users);
+        _canToggleUserStatus = await AuthService.HasPermissionAsync(state.User, HooshabiAction.Update, HooshabiResource.Users);
         _loaded = true;
     }
 }

@@ -1,5 +1,5 @@
 ﻿@page "/catalog/brands"
-@attribute [MustHavePermission(FSHAction.View, FSHResource.Brands)]
+@attribute [MustHavePermission(HooshabiAction.View, HooshabiResource.Brands)]
 
 @inject IStringLocalizer<Brands> L
 @inject IBrandsClient BrandsClient
@@ -28,7 +28,7 @@
         Context = new(
             entityName: L["Brand"],
             entityNamePlural: L["Brands"],
-            entityResource: FSHResource.Brands,
+            entityResource: HooshabiResource.Brands,
             fields: new()
             {
                 new(brand => brand.Id, L["Id"], "Id"),

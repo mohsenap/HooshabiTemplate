@@ -1,4 +1,4 @@
-using FSH.WebApi.Shared.Notifications;
+using Hooshabi.WebApi.Shared.Notifications;
 using MediatR;
 using Microsoft.Extensions.Logging;
 

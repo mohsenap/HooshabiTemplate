@@ -1,7 +1,7 @@
 ﻿using Hooshabi.Client.Client.Components.Common;
 using Hooshabi.Client.Client.Infrastructure.ApiClient;
 using Hooshabi.Client.Client.Shared;
-using FSH.WebApi.Shared.Multitenancy;
+using Hooshabi.WebApi.Shared.Multitenancy;
 using Microsoft.AspNetCore.Components;
 
 namespace Hooshabi.Client.Client.Pages.Authentication;
