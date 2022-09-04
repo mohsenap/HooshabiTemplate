@@ -8,7 +8,7 @@ namespace Hooshabi.Server.Infrastructure.Multitenancy.Tests;
 
 public class ConnectionStringSecurerTests : TestBed<TestFixture>
 {
-    private const string Mssql = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=fullStackHeroDb;MultipleActiveResultSets=True;";
+    private const string Mssql = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=hooshabiDb;MultipleActiveResultSets=True;";
     private const string Mysql = "server=127.0.0.1;database=test";
     private readonly IConnectionStringSecurer? _makeSecureConnectionString;
 

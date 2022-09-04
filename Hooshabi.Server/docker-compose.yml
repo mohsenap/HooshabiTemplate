@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     container_name: api
     environment:
-      - "DatabaseSettings__ConnectionString=Server=db;Database=fullStackHeroDb;\
+      - "DatabaseSettings__ConnectionString=Server=db;Database=hooshabiDb;\
         User=sa;Password=SuperSecurePassword123!;MultipleActiveResultSets=true"
       - "DatabaseSettings__DBProvider=mssql"
       - "HangfireSettings__Storage__ConnectionString=Server=db;Database=fullSta\

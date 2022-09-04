@@ -32,8 +32,8 @@ internal class DatabaseInitializer : IDatabaseInitializer
             await InitializeApplicationDbForTenantAsync(tenant, cancellationToken);
         }
 
-        _logger.LogInformation("For documentations and guides, visit https://www.fullstackhero.net");
-        _logger.LogInformation("To Sponsor this project, visit https://opencollective.com/fullstackhero");
+        _logger.LogInformation("For documentations and guides, visit https://www.hooshabi.net");
+        _logger.LogInformation("To Sponsor this project, visit https://opencollective.com/hooshabi");
     }
 
     public async Task InitializeApplicationDbForTenantAsync(FSHTenantInfo tenant, CancellationToken cancellationToken)

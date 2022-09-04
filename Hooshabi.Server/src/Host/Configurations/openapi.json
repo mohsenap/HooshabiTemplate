@@ -1,14 +1,14 @@
 {
   "SwaggerSettings": {
     "Enable": true,
-    "Title": ".NET 6.0 WebAPI - Clean Architecture",
+    "Title": "Hooshabi Template",
     "Version": "v1",
-    "Description": "Clean Architecture Template for .NET 6.0 WebApi built with Multitenancy Support.",
-    "ContactName": "Mukesh Murugan",
-    "ContactEmail": "hello@codewithmukesh.com",
-    "ContactUrl": "https://linkedin.com/in/iammukeshm",
+    "Description": "Hooshabi Template for .NET 6.0 WebApi built with Multitenancy Support.",
+    "ContactName": "Mohsen Allahyari",
+    "ContactEmail": "mohsen.ap@gmail.com",
+    "ContactUrl": "https://www.linkedin.com/in/mohsen-allahyari-6a900382/",
     "License": true,
     "LicenseName": "MIT License",
-    "LicenseUrl": "https://github.com/fullstackhero/dotnet-webapi-boilerplate/blob/main/LICENSE"
+    "LicenseUrl": "https://github.com/mohsenap"
   }
 }
