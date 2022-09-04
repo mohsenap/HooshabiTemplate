@@ -3,13 +3,13 @@ using Hooshabi.Server.Shared.Multitenancy;
 
 namespace Hooshabi.Server.Infrastructure.Multitenancy;
 
-public class FSHTenantInfo : ITenantInfo
+public class HooshabiTenantInfo : ITenantInfo
 {
-    public FSHTenantInfo()
+    public HooshabiTenantInfo()
     {
     }
 
-    public FSHTenantInfo(string id, string name, string? connectionString, string adminEmail, string? issuer = null)
+    public HooshabiTenantInfo(string id, string name, string? connectionString, string adminEmail, string? issuer = null)
     {
         Id = id;
         Identifier = id;

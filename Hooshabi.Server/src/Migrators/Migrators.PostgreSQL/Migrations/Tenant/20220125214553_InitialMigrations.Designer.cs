@@ -24,7 +24,7 @@ namespace Migrators.PostgreSQL.Migrations.Tenant
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Hooshabi.Server.Infrastructure.Multitenancy.FSHTenantInfo", b =>
+            modelBuilder.Entity("Hooshabi.Server.Infrastructure.Multitenancy.HooshabiTenantInfo", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(64)

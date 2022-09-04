@@ -10,7 +10,7 @@ public class UsersController : VersionNeutralApiController
     public UsersController(IUserService userService) => _userService = userService;
 
     [HttpGet]
-    [MustHavePermission(FSHAction.View, FSHResource.Users)]
+    [MustHavePermission(HooshabiAction.View, HooshabiResource.Users)]
     [OpenApiOperation("Get list of all users.", "")]
     public Task<List<UserDetailsDto>> GetListAsync(CancellationToken cancellationToken)
     {
@@ -18,7 +18,7 @@ public class UsersController : VersionNeutralApiController
     }
 
     [HttpGet("{id}")]
-    [MustHavePermission(FSHAction.View, FSHResource.Users)]
+    [MustHavePermission(HooshabiAction.View, HooshabiResource.Users)]
     [OpenApiOperation("Get a user's details.", "")]
     public Task<UserDetailsDto> GetByIdAsync(string id, CancellationToken cancellationToken)
     {
@@ -26,7 +26,7 @@ public class UsersController : VersionNeutralApiController
     }
 
     [HttpGet("{id}/roles")]
-    [MustHavePermission(FSHAction.View, FSHResource.UserRoles)]
+    [MustHavePermission(HooshabiAction.View, HooshabiResource.UserRoles)]
     [OpenApiOperation("Get a user's roles.", "")]
     public Task<List<UserRoleDto>> GetRolesAsync(string id, CancellationToken cancellationToken)
     {
@@ -34,8 +34,8 @@ public class UsersController : VersionNeutralApiController
     }
 
     [HttpPost("{id}/roles")]
-    [ApiConventionMethod(typeof(FSHApiConventions), nameof(FSHApiConventions.Register))]
-    [MustHavePermission(FSHAction.Update, FSHResource.UserRoles)]
+    [ApiConventionMethod(typeof(HooshabiApiConventions), nameof(HooshabiApiConventions.Register))]
+    [MustHavePermission(HooshabiAction.Update, HooshabiResource.UserRoles)]
     [OpenApiOperation("Update a user's assigned roles.", "")]
     public Task<string> AssignRolesAsync(string id, UserRolesRequest request, CancellationToken cancellationToken)
     {
@@ -43,7 +43,7 @@ public class UsersController : VersionNeutralApiController
     }
 
     [HttpPost]
-    [MustHavePermission(FSHAction.Create, FSHResource.Users)]
+    [MustHavePermission(HooshabiAction.Create, HooshabiResource.Users)]
     [OpenApiOperation("Creates a new user.", "")]
     public Task<string> CreateAsync(CreateUserRequest request)
     {
@@ -57,7 +57,7 @@ public class UsersController : VersionNeutralApiController
     [TenantIdHeader]
     [AllowAnonymous]
     [OpenApiOperation("Anonymous user creates a user.", "")]
-    [ApiConventionMethod(typeof(FSHApiConventions), nameof(FSHApiConventions.Register))]
+    [ApiConventionMethod(typeof(HooshabiApiConventions), nameof(HooshabiApiConventions.Register))]
     public Task<string> SelfRegisterAsync(CreateUserRequest request)
     {
         // TODO: check if registering anonymous users is actually allowed (should probably be an appsetting)
@@ -67,8 +67,8 @@ public class UsersController : VersionNeutralApiController
     }
 
     [HttpPost("{id}/toggle-status")]
-    [MustHavePermission(FSHAction.Update, FSHResource.Users)]
-    [ApiConventionMethod(typeof(FSHApiConventions), nameof(FSHApiConventions.Register))]
+    [MustHavePermission(HooshabiAction.Update, HooshabiResource.Users)]
+    [ApiConventionMethod(typeof(HooshabiApiConventions), nameof(HooshabiApiConventions.Register))]
     [OpenApiOperation("Toggle a user's active status.", "")]
     public async Task<ActionResult> ToggleStatusAsync(string id, ToggleUserStatusRequest request, CancellationToken cancellationToken)
     {
@@ -84,7 +84,7 @@ public class UsersController : VersionNeutralApiController
     [HttpGet("confirm-email")]
     [AllowAnonymous]
     [OpenApiOperation("Confirm email address for a user.", "")]
-    [ApiConventionMethod(typeof(FSHApiConventions), nameof(FSHApiConventions.Search))]
+    [ApiConventionMethod(typeof(HooshabiApiConventions), nameof(HooshabiApiConventions.Search))]
     public Task<string> ConfirmEmailAsync([FromQuery] string tenant, [FromQuery] string userId, [FromQuery] string code, CancellationToken cancellationToken)
     {
         return _userService.ConfirmEmailAsync(userId, code, tenant, cancellationToken);
@@ -93,7 +93,7 @@ public class UsersController : VersionNeutralApiController
     [HttpGet("confirm-phone-number")]
     [AllowAnonymous]
     [OpenApiOperation("Confirm phone number for a user.", "")]
-    [ApiConventionMethod(typeof(FSHApiConventions), nameof(FSHApiConventions.Search))]
+    [ApiConventionMethod(typeof(HooshabiApiConventions), nameof(HooshabiApiConventions.Search))]
     public Task<string> ConfirmPhoneNumberAsync([FromQuery] string userId, [FromQuery] string code)
     {
         return _userService.ConfirmPhoneNumberAsync(userId, code);
@@ -103,7 +103,7 @@ public class UsersController : VersionNeutralApiController
     [AllowAnonymous]
     [TenantIdHeader]
     [OpenApiOperation("Request a pasword reset email for a user.", "")]
-    [ApiConventionMethod(typeof(FSHApiConventions), nameof(FSHApiConventions.Register))]
+    [ApiConventionMethod(typeof(HooshabiApiConventions), nameof(HooshabiApiConventions.Register))]
     public Task<string> ForgotPasswordAsync(ForgotPasswordRequest request)
     {
         return _userService.ForgotPasswordAsync(request, GetOriginFromRequest());
@@ -111,7 +111,7 @@ public class UsersController : VersionNeutralApiController
 
     [HttpPost("reset-password")]
     [OpenApiOperation("Reset a user's password.", "")]
-    [ApiConventionMethod(typeof(FSHApiConventions), nameof(FSHApiConventions.Register))]
+    [ApiConventionMethod(typeof(HooshabiApiConventions), nameof(HooshabiApiConventions.Register))]
     public Task<string> ResetPasswordAsync(ResetPasswordRequest request)
     {
         return _userService.ResetPasswordAsync(request);

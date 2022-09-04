@@ -2,7 +2,7 @@ using System.Collections.ObjectModel;
 
 namespace Hooshabi.Server.Shared.Authorization;
 
-public static class FSHRoles
+public static class HooshabiRoles
 {
     public const string Admin = nameof(Admin);
     public const string Basic = nameof(Basic);

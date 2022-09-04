@@ -19,7 +19,7 @@ namespace Migrators.MySQL.Migrations.Tenant
                 .HasAnnotation("ProductVersion", "6.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("Hooshabi.Server.Infrastructure.Multitenancy.FSHTenantInfo", b =>
+            modelBuilder.Entity("Hooshabi.Server.Infrastructure.Multitenancy.HooshabiTenantInfo", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(64)

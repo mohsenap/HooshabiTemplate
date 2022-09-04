@@ -65,7 +65,7 @@ internal class RoleService : IRoleService
         var role = await GetByIdAsync(roleId);
 
         role.Permissions = await _db.RoleClaims
-            .Where(c => c.RoleId == roleId && c.ClaimType == FSHClaims.Permission)
+            .Where(c => c.RoleId == roleId && c.ClaimType == HooshabiClaims.Permission)
             .Select(c => c.ClaimValue)
             .ToListAsync(cancellationToken);
 
@@ -96,7 +96,7 @@ internal class RoleService : IRoleService
 
             _ = role ?? throw new NotFoundException(_localizer["Role Not Found"]);
 
-            if (FSHRoles.IsDefault(role.Name))
+            if (HooshabiRoles.IsDefault(role.Name))
             {
                 throw new ConflictException(string.Format(_localizer["Not allowed to modify {0} Role."], role.Name));
             }
@@ -121,7 +121,7 @@ internal class RoleService : IRoleService
     {
         var role = await _roleManager.FindByIdAsync(request.RoleId);
         _ = role ?? throw new NotFoundException(_localizer["Role Not Found"]);
-        if (role.Name == FSHRoles.Admin)
+        if (role.Name == HooshabiRoles.Admin)
         {
             throw new ConflictException(_localizer["Not allowed to modify Permissions for this Role."]);
         }
@@ -152,7 +152,7 @@ internal class RoleService : IRoleService
                 _db.RoleClaims.Add(new ApplicationRoleClaim
                 {
                     RoleId = role.Id,
-                    ClaimType = FSHClaims.Permission,
+                    ClaimType = HooshabiClaims.Permission,
                     ClaimValue = permission,
                     CreatedBy = _currentUser.GetUserId().ToString()
                 });
@@ -171,7 +171,7 @@ internal class RoleService : IRoleService
 
         _ = role ?? throw new NotFoundException(_localizer["Role Not Found"]);
 
-        if (FSHRoles.IsDefault(role.Name))
+        if (HooshabiRoles.IsDefault(role.Name))
         {
             throw new ConflictException(string.Format(_localizer["Not allowed to delete {0} Role."], role.Name));
         }

@@ -24,7 +24,7 @@ namespace Migrators.Oracle.Migrations.Tenant
 
             OracleModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Hooshabi.Server.Infrastructure.Multitenancy.FSHTenantInfo", b =>
+            modelBuilder.Entity("Hooshabi.Server.Infrastructure.Multitenancy.HooshabiTenantInfo", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(64)

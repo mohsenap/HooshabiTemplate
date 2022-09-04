@@ -6,7 +6,7 @@ using Hooshabi.Server.Infrastructure;
 using Hooshabi.Server.Infrastructure.Common;
 using Serilog;
 
-[assembly: ApiConventionType(typeof(FSHApiConventions))]
+[assembly: ApiConventionType(typeof(HooshabiApiConventions))]
 
 StaticLogger.EnsureInitialized();
 Log.Information("Server Booting Up...");

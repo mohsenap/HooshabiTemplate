@@ -5,7 +5,7 @@ namespace Hooshabi.Server.Host.Controllers.Dashboard;
 public class DashboardController : VersionedApiController
 {
     [HttpGet]
-    [MustHavePermission(FSHAction.View, FSHResource.Dashboard)]
+    [MustHavePermission(HooshabiAction.View, HooshabiResource.Dashboard)]
     [OpenApiOperation("Get statistics for the dashboard.", "")]
     public Task<StatsDto> GetAsync()
     {

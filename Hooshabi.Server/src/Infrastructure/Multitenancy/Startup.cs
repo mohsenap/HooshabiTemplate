@@ -23,11 +23,11 @@ internal static class Startup
 
         return services
             .AddDbContext<TenantDbContext>(m => m.UseDatabase(dbProvider, rootConnectionString))
-            .AddMultiTenant<FSHTenantInfo>()
-                .WithClaimStrategy(FSHClaims.Tenant)
+            .AddMultiTenant<HooshabiTenantInfo>()
+                .WithClaimStrategy(HooshabiClaims.Tenant)
                 .WithHeaderStrategy(MultitenancyConstants.TenantIdName)
                 .WithQueryStringStrategy(MultitenancyConstants.TenantIdName)
-                .WithEFCoreStore<TenantDbContext, FSHTenantInfo>()
+                .WithEFCoreStore<TenantDbContext, HooshabiTenantInfo>()
                 .Services
             .AddScoped<ITenantService, TenantService>();
     }
@@ -35,7 +35,7 @@ internal static class Startup
     internal static IApplicationBuilder UseMultiTenancy(this IApplicationBuilder app) =>
         app.UseMultiTenant();
 
-    private static FinbuckleMultiTenantBuilder<FSHTenantInfo> WithQueryStringStrategy(this FinbuckleMultiTenantBuilder<FSHTenantInfo> builder, string queryStringKey) =>
+    private static FinbuckleMultiTenantBuilder<HooshabiTenantInfo> WithQueryStringStrategy(this FinbuckleMultiTenantBuilder<HooshabiTenantInfo> builder, string queryStringKey) =>
         builder.WithDelegateStrategy(context =>
         {
             if (context is not HttpContext httpContext)
