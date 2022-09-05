@@ -25,7 +25,7 @@ public partial class BaseLayout
             config.ActionColor = Color.Primary;
             config.Onclick = snackbar =>
             {
-                Navigation.NavigateTo("https://github.com/Hooshabi/blazor-wasm-boilerplate");
+                Navigation.NavigateTo("https://github.com/mohsenap");
                 return Task.CompletedTask;
             };
         });
