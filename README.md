@@ -1,7 +1,10 @@
 modify HooshabiTemplate\Hooshabi.Server\src\Host\Configurations\database.json  for sql connection string.
 
 
+
 modify HooshabiTemplate\Hooshabi.Server\src\Host\Configurations\hangfire.json for connection string.
+
+
 
 
 follow as below: 
