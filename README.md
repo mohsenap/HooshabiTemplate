@@ -51,3 +51,20 @@ tenant: root
 Hangfire Info:
 User: Admin
 Password: S3(r3tP@55w0rd"
+
+
+
+For testing only Services with Swagger:
+
+goto https://localhost:5001/swagger/index.html
+
+run the API /api/tokens  with tenant: root and the body below
+
+{
+  "email":"admin@root.com",
+    "password":"123Pa$$word!"
+}
+
+copy the token from response to Swagger Authorize button on top of the page.
+
+then call the apis.
