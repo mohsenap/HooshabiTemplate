@@ -73,9 +73,9 @@ then call the apis.
 
 The Features
 
- Built on .NET 6.0
- Follows Clean Architecture Principles
- Domain Driven Design
+ Built on .NET 6.0 \
+ Follows Clean Architecture Principles \
+ Domain Driven Design \
  Completely Documented at fullstackhero.net
  Multi Tenancy Support with Finbuckle
  Create Tenants with Multi Database / Shared Database Support
