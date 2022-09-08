@@ -68,3 +68,35 @@ run the API /api/tokens  with tenant: root and the body below
 copy the token from response to Swagger Authorize button on top of the page.
 
 then call the apis.
+
+
+
+The Features
+
+ Built on .NET 6.0
+ Follows Clean Architecture Principles
+ Domain Driven Design
+ Completely Documented at fullstackhero.net
+ Multi Tenancy Support with Finbuckle
+ Create Tenants with Multi Database / Shared Database Support
+ Upgrade Subscription of Tenants - Add More Validity Months to each tenant!
+ Supports MySQL, MSSQL, Oracle & PostgreSQL!
+ Uses Entity Framework Core as DB Abstraction
+ Flexible Repository Pattern
+ Dapper Integration for Optimal Performance
+ Serilog Integration with various Sinks - File, SEQ, Kibana
+ OpenAPI - Supports Client Service Generation
+ Mapster Integration for Quicker Mapping
+ API Versioning
+ Response Caching - Distributed Caching + REDIS
+ Fluent Validations
+ Audit Logging
+ Advanced User & Role Based Permission Management
+ Code Analysis & StyleCop Integration with Rulesets
+ JSON Based Localization with Caching
+ Hangfire Support
+ File Storage Service
+ Test Projects
+ JWT & Azure AD Authentication
+ MediatR - CQRS
+ SignalR Notifications
