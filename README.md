@@ -76,9 +76,9 @@ The Features
  Built on .NET 6.0 \
  Follows Clean Architecture Principles \
  Domain Driven Design \
- Completely Documented at fullstackhero.net  \
- Multi Tenancy Support with Finbuckle \
- Create Tenants with Multi Database / Shared Database Support \
+ Completely Documented at fullstackhero.net\
+ Multi Tenancy Support with Finbuckle\
+ Create Tenants with Multi Database / Shared Database Support\
  Upgrade Subscription of Tenants - Add More Validity Months to each tenant! \
  Supports MySQL, MSSQL, Oracle & PostgreSQL! \
  Uses Entity Framework Core as DB Abstraction \
