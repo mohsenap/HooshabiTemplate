@@ -24,3 +24,11 @@ nano /etc/nginx/sites-enabled/dotnet.hooshabi.ir
 cp -rn /etc/nginx/sites-enabled/dotnet.hooshabi.ir /etc/nginx/sites-available/
 sudo systemctl restart nginx
 ############ End NGINX ############
+
+
+  ############ NGINX ############
+sudo -i
+nano /etc/nginx/sites-enabled/app.hooshabi.ir
+cp -rn /etc/nginx/sites-enabled/app.hooshabi.ir /etc/nginx/sites-available/
+sudo systemctl restart nginx
+############ End NGINX ############
