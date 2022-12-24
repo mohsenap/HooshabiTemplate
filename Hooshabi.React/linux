@@ -15,7 +15,7 @@ rm -r publishserver.zip
 git reset --hard
 git pull
 rm -r /home/mohsen/apps/publishserver
-unzip publishserver.zip -d /home/mohsen/apps
+unzip publishserver.zip -d /home/mohsen/apps 
 cd /home/mohsen/apps/publishserver
 dotnet Hooshabi.Server.Host.dll
 
