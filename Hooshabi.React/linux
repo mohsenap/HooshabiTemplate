@@ -14,3 +14,13 @@ sudo apt-get update && \
   rm -r publishserver.zip
   git pull
   unzip publishserver 
+  cd publishserver/
+  dotnet Hooshabi.Server.Host.dll
+
+
+  ############ NGINX ############
+sudo -i
+nano /etc/nginx/sites-enabled/dotnet.hooshabi.ir
+cp -rn /etc/nginx/sites-enabled/dotnet.hooshabi.ir /etc/nginx/sites-available/
+sudo systemctl restart nginx
+############ End NGINX ############
