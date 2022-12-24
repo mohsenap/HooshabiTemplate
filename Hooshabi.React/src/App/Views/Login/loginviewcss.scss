@@ -1,0 +1,22 @@
+ .loginformct{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+ }
+ .login-form {
+    max-width: 360px;
+   
+  }
+ .login-form-forgot {
+    float: right;
+  }
+ .ant-col-rtl .login-form-forgot {
+    float: left;
+  }
+ .login-form-button {
+    width: 100%;
+ }
+ .failedmsg{
+    color:#cf1322;
+ }

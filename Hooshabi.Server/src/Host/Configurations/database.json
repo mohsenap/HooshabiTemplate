@@ -1,6 +1,10 @@
 {
   "DatabaseSettings": {
-    "DBProvider": "mssql",
-    "ConnectionString": "server=.;uid=sa;pwd=mohsen;database=Hooshabi;MultipleActiveResultSets=True"
+    "DBProvider": "mysql",
+    "ConnectionString": "server=hooshabi.ir;uid=mohsen;pwd=Aa@1234567;database=HooshabiDotnet;"
   }
 }
+//{
+//  "email": "admin@root.com",
+//  "password": "123Pa$$word!"
+//}

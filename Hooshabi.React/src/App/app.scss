@@ -1,0 +1,53 @@
+@import './theme/theme.scss';
+@import './theme/mixin.scss';
+
+
+.viewroot{
+    
+}
+
+body {
+    @include theme-aware('background', 'color-background');
+}
+
+.customdatespan{
+    direction: initial;
+    display: table-cell;
+  }
+  
+  .customdatepickerinput{
+    direction: ltr;
+    text-align: right;
+  }
+  
+  .rmdp-container, .rmdp-container input{
+    display: block !important;
+    width: 100%;
+  }
+
+  .rmdp-container input{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-variant: tabular-nums;
+    list-style: none;
+    font-feature-settings: 'tnum', "tnum";
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    min-width: 0;
+    padding: 4px 11px;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 14px;
+    line-height: 1.5715;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .rmdp-container input:hover, .rmdp-container input:focus-visible  {
+    border:1px solid #40a9ff !important;
+    outline: none;
+}
