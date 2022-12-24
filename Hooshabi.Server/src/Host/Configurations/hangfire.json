@@ -20,8 +20,8 @@
       "WorkerCount": 5
     },
     "Storage": {
-      "StorageProvider": "mssql",
-      "ConnectionString": "server=.;uid=sa;pwd=mohsen;database=Hooshabi;MultipleActiveResultSets=True",
+      "StorageProvider": "mysql",
+      "ConnectionString": "server=185.8.174.232,3306;uid=mohsen;pwd=Aa@1234567;database=HooshabiDotnet;",
       "Options": {
         "CommandBatchMaxTimeout": "00:05:00",
         "QueuePollInterval": "00:00:01",

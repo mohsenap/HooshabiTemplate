@@ -32,3 +32,10 @@ nano /etc/nginx/sites-enabled/app.hooshabi.ir
 cp -rn /etc/nginx/sites-enabled/app.hooshabi.ir /etc/nginx/sites-available/
 sudo systemctl restart nginx
 ############ End NGINX ############
+
+
+sudo cp hooshabidotnet.service /etc/systemd/system/hooshabidotnet.service
+sudo systemctl daemon-reload
+sudo systemctl start hooshabidotnet
+
+systemctl status
