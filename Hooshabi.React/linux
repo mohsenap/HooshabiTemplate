@@ -13,8 +13,9 @@ sudo apt-get update && \
   cd /home/mohsen/apps/HooshabiTemplate/
   rm -r publishserver.zip
   git pull
-  unzip publishserver 
-  cd publishserver/
+  rm -r /home/mohsen/apps/publishdotneterver
+  unzip publishserver.zip -d /home/mohsen/apps
+  cd /home/mohsen/apps/publishdotneterver
   dotnet Hooshabi.Server.Host.dll
 
 
