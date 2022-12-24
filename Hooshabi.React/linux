@@ -11,8 +11,6 @@ sudo apt-get update && \
 
 
 cd /home/mohsen/apps/HooshabiTemplate/
-rm -r publishserver.zip
-git reset --hard
 git pull
 rm -r /home/mohsen/apps/publishserver
 unzip publishserver.zip -d /home/mohsen/apps 
