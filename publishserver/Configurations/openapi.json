@@ -1,0 +1,14 @@
+{
+  "SwaggerSettings": {
+    "Enable": true,
+    "Title": "Hooshabi Template",
+    "Version": "v1",
+    "Description": "Hooshabi Template for .NET 6.0 WebApi built with Multitenancy Support.",
+    "ContactName": "Mohsen Allahyari",
+    "ContactEmail": "mohsen.ap@gmail.com",
+    "ContactUrl": "https://www.linkedin.com/in/mohsen-allahyari-6a900382/",
+    "License": true,
+    "LicenseName": "MIT License",
+    "LicenseUrl": "https://github.com/mohsenap"
+  }
+}
