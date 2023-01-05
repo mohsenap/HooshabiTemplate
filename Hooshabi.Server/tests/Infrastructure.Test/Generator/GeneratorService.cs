@@ -21,13 +21,17 @@ public class GeneratorService : TestBed<TestFixture>
     }
 
     [Theory]
-    [InlineData("Entity1")]
-    public void MakeSecureTest(string Entity)
+    [InlineData("Entity1", "Brand,Product")]
+    public void MakeSecureTest(string tables, string IgnoreList)
     {
         var instances = GetEnumerableOfType();
-        if (!string.IsNullOrEmpty(Entity))
+        if (!string.IsNullOrEmpty(tables))
         {
-            instances = instances.Where(t => t.Key.Name.ToLower().Contains(Entity.ToLower())).ToDictionary(t => t.Key, u => u.Value);
+            instances = instances.Where(t => tables.Split(',').Any(u => u.Trim() == t.Key.Name)).ToDictionary(t => t.Key, u => u.Value);
+        }
+        if (!string.IsNullOrEmpty(IgnoreList))
+        {
+            instances = instances.Where(t => !IgnoreList.Split(',').Any(u => u.Trim() == t.Key.Name)).ToDictionary(t => t.Key, u => u.Value);
         }
         foreach (var instance in instances)
         {

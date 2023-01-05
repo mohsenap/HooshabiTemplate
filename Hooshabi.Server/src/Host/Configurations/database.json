@@ -1,10 +1,17 @@
 {
   "DatabaseSettings": {
-    "DBProvider": "mysql",
-    "ConnectionString": "server=185.8.174.232,3306;uid=mohsen;pwd=Aa@1234567;database=HooshabiDotnet;"
+    "DBProvider": "mssql",
+    //"ConnectionString": "server=185.8.174.232,3306;uid=mohsen;pwd=Aa@1234567;database=HooshabiDotnet;"
+    "ConnectionString": "server=.;uid=sa;pwd=mohsen;database=HooshabiDotnet;MultipleActiveResultSets=true;App=HooshabiDotnet"
   }
 }
 //{
 //  "email": "admin@root.com",
 //  "password": "123Pa$$word!"
 //}
+
+//add-migration Second Migration -context ApplicationDbContext
+//dotnet ef migrations add MyFirstMigration
+//Update-Database
+//dotnet ef database update
+//https://www.entityframeworktutorial.net/efcore/entity-framework-core-migration.aspx

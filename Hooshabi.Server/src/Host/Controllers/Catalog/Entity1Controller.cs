@@ -1,4 +1,3 @@
-using Hooshabi.Server.Application.Catalog.Brands;
 using Hooshabi.Server.Application.Catalog.Entity1s;
 using Hooshabi.Server.Infrastructure.ModelBinders;
 
@@ -32,7 +31,7 @@ public class Entity1Controller : VersionedApiController
 
     [HttpPut("{id}")]
     [MustHavePermission(HooshabiAction.Update, HooshabiResource.Entity1)]
-    [OpenApiOperation("Update a Entity1.", "")]    
+    [OpenApiOperation("Update a Entity1.", "")]
     public async Task<ActionResult<int>> UpdateAsync([FromBody, ModelBinder(Name = "UpdateEntity1Request", BinderType = typeof(UpdateDynamicModelBinder))] UpdateEntity1Request request, int id)
     {
         return await Mediator.Send(request);

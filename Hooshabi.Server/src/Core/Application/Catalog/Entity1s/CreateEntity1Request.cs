@@ -1,12 +1,11 @@
 using Hooshabi.Server.Shared;
 namespace Hooshabi.Server.Application.Catalog.Entity1s;
 
-
 public class CreateEntity1Request : IRequest<int>
 {
     public int Id { get; set; }
-    public string Name { get; set; }
-    public string Description { get; set; }
+public string Name { get; set; }
+public string Description { get; set; }
 
 }
 
