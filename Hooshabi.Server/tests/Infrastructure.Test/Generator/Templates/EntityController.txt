@@ -1,0 +1,48 @@
+﻿using Hooshabi.Server.Application.Catalog.$$Entity$$s;
+using Hooshabi.Server.Infrastructure.ModelBinders;
+
+namespace Hooshabi.Server.Host.Controllers.Catalog;
+
+public class $$Entity$$Controller : VersionedApiController
+{
+    [HttpPost("search")]
+    [MustHavePermission(HooshabiAction.Search, HooshabiResource.$$Entity$$)]
+    [OpenApiOperation("Search $$Entity$$ using available filters.", "")]
+    public Task<PaginationResponse<$$Entity$$Dto>> SearchAsync(Search$$Entity$$Request request)
+    {
+        return Mediator.Send(request);
+    }
+
+    [HttpGet("{id}")]
+    [MustHavePermission(HooshabiAction.View, HooshabiResource.$$Entity$$)]
+    [OpenApiOperation("Get $$Entity$$ details.", "")]
+    public Task<$$Entity$$Dto> GetAsync($$KeyType$$ id)
+    {
+        return Mediator.Send(new Get$$Entity$$Request(id));
+    }
+
+    [HttpPost]
+    [MustHavePermission(HooshabiAction.Create, HooshabiResource.$$Entity$$)]
+    [OpenApiOperation("Create a new $$Entity$$.", "")]
+    public Task<$$KeyType$$> CreateAsync(Create$$Entity$$Request request)
+    {
+        return Mediator.Send(request);
+    }
+
+    [HttpPut("{id}")]
+    [MustHavePermission(HooshabiAction.Update, HooshabiResource.$$Entity$$)]
+    [OpenApiOperation("Update a $$Entity$$.", "")]
+    public async Task<ActionResult<$$KeyType$$>> UpdateAsync([ModelBinder(Name = "Update$$Entity$$Request", BinderType = typeof(UpdateDynamicModelBinder))] Update$$Entity$$Request request, $$KeyType$$ id)
+    {
+        return await Mediator.Send(request);
+    }
+
+    [HttpDelete("{id}")]
+    [MustHavePermission(HooshabiAction.Delete, HooshabiResource.$$Entity$$)]
+    [OpenApiOperation("Delete a $$Entity$$.", "")]
+    public Task<$$KeyType$$> DeleteAsync($$KeyType$$ id)
+    {
+        return Mediator.Send(new Delete$$Entity$$Request(id));
+    }
+
+}

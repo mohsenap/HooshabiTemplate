@@ -1,0 +1,6 @@
+namespace Hooshabi.Server.Application.Catalog.$$Entity$$s;
+
+public class $$Entity$$Dto : IDto
+{
+    $$Properties$$
+}

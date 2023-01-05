@@ -1,0 +1,25 @@
+namespace Hooshabi.Server.Application.Catalog.$$Entity$$s;
+
+public class Search$$Entity$$Request : PaginationFilter, IRequest<PaginationResponse<$$Entity$$Dto>>
+{
+}
+
+public class $$Entity$$BySearchRequestSpec : EntitiesByPaginationFilterSpec<$$Entity$$, $$Entity$$Dto>
+{
+    public $$Entity$$BySearchRequestSpec(Search$$Entity$$Request request)
+        : base(request) =>
+        Query.OrderBy(t => t.Id);
+}
+
+public class Search$$Entity$$RequestHandler : IRequestHandler<Search$$Entity$$Request, PaginationResponse<$$Entity$$Dto>>
+{
+    private readonly IReadRepository<$$Entity$$> _repository;
+
+    public Search$$Entity$$RequestHandler(IReadRepository<$$Entity$$> repository) => _repository = repository;
+
+    public async Task<PaginationResponse<$$Entity$$Dto>> Handle(Search$$Entity$$Request request, CancellationToken cancellationToken)
+    {
+        var spec = new $$Entity$$BySearchRequestSpec(request);
+        return await _repository.PaginatedListAsync(spec, request.PageNumber, request.PageSize, cancellationToken);
+    }
+}

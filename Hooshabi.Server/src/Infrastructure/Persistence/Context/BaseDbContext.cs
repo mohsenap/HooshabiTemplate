@@ -8,6 +8,7 @@ using Hooshabi.Server.Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 namespace Hooshabi.Server.Infrastructure.Persistence.Context;
@@ -54,7 +55,7 @@ public abstract class BaseDbContext : MultiTenantIdentityDbContext<ApplicationUs
         // optionsBuilder.LogTo(m => Debug.WriteLine(m), LogLevel.Information);
 
         // Or uncomment the next line if you want to see them in the console
-        // optionsBuilder.LogTo(Console.WriteLine, LogLevel.Information);
+         optionsBuilder.LogTo(Console.WriteLine, LogLevel.Information);
 
         if (!string.IsNullOrWhiteSpace(TenantInfo?.ConnectionString))
         {

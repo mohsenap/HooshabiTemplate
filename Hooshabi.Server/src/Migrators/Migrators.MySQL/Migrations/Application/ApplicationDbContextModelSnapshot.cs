@@ -17,7 +17,7 @@ namespace Migrators.MySQL.Migrations.Application
 #pragma warning disable 612, 618
             modelBuilder
                 .HasDefaultSchema("Catalog")
-                .HasAnnotation("ProductVersion", "6.0.1")
+                .HasAnnotation("ProductVersion", "6.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("Hooshabi.Server.Domain.Catalog.Brand", b =>
@@ -62,6 +62,42 @@ namespace Migrators.MySQL.Migrations.Application
                     b.ToTable("Brands", "Catalog");
 
                     b.HasAnnotation("Finbuckle:MultiTenant", true);
+                });
+
+            modelBuilder.Entity("Hooshabi.Server.Domain.Catalog.Entity1", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<Guid?>("DeletedBy")
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("longtext");
+
+                    b.Property<Guid>("LastModifiedBy")
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime?>("LastModifiedOn")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Entity1", "Catalog");
                 });
 
             modelBuilder.Entity("Hooshabi.Server.Domain.Catalog.Product", b =>
@@ -214,18 +250,6 @@ namespace Migrators.MySQL.Migrations.Application
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Group")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("LastModifiedBy")
-                        .HasColumnType("longtext");
-
-                    b.Property<DateTime?>("LastModifiedOn")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("RoleId")

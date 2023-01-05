@@ -1,0 +1,30 @@
+﻿using Hooshabi.Server.Application.Catalog.Products;
+
+namespace Hooshabi.Server.Application.Catalog.$$Entity$$s;
+
+public class Delete$$Entity$$Request : IRequest<$$KeyType$$>
+{
+    public $$KeyType$$ Id { get; set; }
+
+    public Delete$$Entity$$Request($$KeyType$$ id) => Id = id;
+}
+
+public class Delete$$Entity$$RequestHandler : IRequestHandler<Delete$$Entity$$Request, $$KeyType$$>
+{
+    // Add Domain Events automatically by using IRepositoryWithEvents
+    private readonly IRepositoryWithEvents<$$Entity$$> _$$Entity$$Repo;
+    private readonly IStringLocalizer<Delete$$Entity$$RequestHandler> _localizer;
+
+    public Delete$$Entity$$RequestHandler(IRepositoryWithEvents<$$Entity$$> $$Entity$$Repo, IStringLocalizer<Delete$$Entity$$RequestHandler> localizer) =>
+        (_$$Entity$$Repo, _localizer) = ($$Entity$$Repo, localizer);
+
+    public async Task<$$KeyType$$> Handle(Delete$$Entity$$Request request, CancellationToken cancellationToken)
+    {
+
+        var entity = await _$$Entity$$Repo.GetByIdAsync(request.Id, cancellationToken);
+
+        _ = entity ?? throw new NotFoundException(_localizer["$$Entity$$.notfound"]);
+        await _$$Entity$$Repo.DeleteAsync(entity, cancellationToken);
+        return request.Id;
+    }
+}

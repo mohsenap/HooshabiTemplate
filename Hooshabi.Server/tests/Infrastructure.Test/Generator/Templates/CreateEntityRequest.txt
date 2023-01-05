@@ -1,0 +1,28 @@
+namespace Hooshabi.Server.Application.Catalog.$$Entity$$s;
+
+public class Create$$Entity$$Request : IRequest<$$KeyType$$>
+{
+    $$Properties$$
+}
+
+public class Create$$Entity$$RequestValidator : CustomValidator<Create$$Entity$$Request>
+{
+    public Create$$Entity$$RequestValidator(IReadRepository<$$Entity$$> repository, IStringLocalizer<Create$$Entity$$RequestValidator> localizer)
+    {
+    }
+}
+
+public class Create$$Entity$$RequestHandler : IRequestHandler<Create$$Entity$$Request, $$KeyType$$>
+{
+    // Add Domain Events automatically by using IRepositoryWithEvents
+    private readonly IRepositoryWithEvents<$$Entity$$> _repository;
+
+    public Create$$Entity$$RequestHandler(IRepositoryWithEvents<$$Entity$$> repository) => _repository = repository;
+
+    public async Task<$$KeyType$$> Handle(Create$$Entity$$Request request, CancellationToken cancellationToken)
+    {
+        var entity = new $$Entity$$();
+        await _repository.AddAsync(entity, cancellationToken);
+        return entity.Id;
+    }
+}

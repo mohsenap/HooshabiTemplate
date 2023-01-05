@@ -26,6 +26,8 @@ public static class HooshabiResource
     public const string RoleClaims = nameof(RoleClaims);
     public const string Products = nameof(Products);
     public const string Brands = nameof(Brands);
+    public const string Entity1 = nameof(Entity1);
+    //HooshabiResource//
 }
 
 public static class HooshabiPermissions
@@ -64,7 +66,13 @@ public static class HooshabiPermissions
         new("View Tenants", HooshabiAction.View, HooshabiResource.Tenants, IsRoot: true),
         new("Create Tenants", HooshabiAction.Create, HooshabiResource.Tenants, IsRoot: true),
         new("Update Tenants", HooshabiAction.Update, HooshabiResource.Tenants, IsRoot: true),
-        new("Upgrade Tenant Subscription", HooshabiAction.UpgradeSubscription, HooshabiResource.Tenants, IsRoot: true)
+        new("Upgrade Tenant Subscription", HooshabiAction.UpgradeSubscription, HooshabiResource.Tenants, IsRoot: true),
+        new("View Entity1", HooshabiAction.View, HooshabiResource.Entity1, IsBasic: true),
+        new("Search Entity1", HooshabiAction.Search, HooshabiResource.Entity1, IsBasic: true),
+        new("Create Entity1", HooshabiAction.Create, HooshabiResource.Entity1),
+        new("Update Entity1", HooshabiAction.Update, HooshabiResource.Entity1),
+        new("Delete Entity1", HooshabiAction.Delete, HooshabiResource.Entity1),
+        //HooshabiPermission//
     };
 
     public static IReadOnlyList<HooshabiPermission> All { get; } = new ReadOnlyCollection<HooshabiPermission>(_all);

@@ -2,6 +2,7 @@
 using Hooshabi.Server.Application.Common.Persistence;
 using Hooshabi.Server.Domain.Common.Contracts;
 using Hooshabi.Server.Domain.Common.Events;
+using Hooshabi.Server.Infrastructure.Common.Extensions;
 
 namespace Hooshabi.Server.Infrastructure.Persistence.Repository;
 
@@ -27,6 +28,13 @@ public class EventAddingRepositoryDecorator<T> : IRepositoryWithEvents<T>
 
     public Task UpdateAsync(T entity, CancellationToken cancellationToken = default)
     {
+        entity.DomainEvents.Add(EntityUpdatedEvent.WithEntity(entity));
+        return _decorated.UpdateAsync(entity, cancellationToken);
+    }
+
+    public Task UpdateDynamicAsync(T entity, dynamic model, CancellationToken cancellationToken = default)
+    {
+        entity.UpdateFromModel<T>((IDictionary<string, object>)model);
         entity.DomainEvents.Add(EntityUpdatedEvent.WithEntity(entity));
         return _decorated.UpdateAsync(entity, cancellationToken);
     }

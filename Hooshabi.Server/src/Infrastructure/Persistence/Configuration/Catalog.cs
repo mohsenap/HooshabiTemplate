@@ -1,4 +1,4 @@
-﻿using Finbuckle.MultiTenant.EntityFrameworkCore;
+using Finbuckle.MultiTenant.EntityFrameworkCore;
 using Hooshabi.Server.Domain.Catalog;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -32,3 +32,8 @@ public class ProductConfig : IEntityTypeConfiguration<Product>
                 .HasMaxLength(2048);
     }
 }
+
+public class Entity1Config : IEntityTypeConfiguration<Entity1> { public void Configure(EntityTypeBuilder<Entity1> builder) { builder.IsMultiTenant(); } }
+
+//$$EntityConfig$$//
+

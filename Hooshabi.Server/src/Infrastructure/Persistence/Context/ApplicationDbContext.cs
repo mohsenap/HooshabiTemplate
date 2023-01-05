@@ -18,10 +18,12 @@ public class ApplicationDbContext : BaseDbContext
     public DbSet<Product> Products => Set<Product>();
     public DbSet<Brand> Brands => Set<Brand>();
 
+    public DbSet<Entity1> Entity1 => Set<Entity1>();
+    //$$Properties$$//
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
         modelBuilder.HasDefaultSchema(SchemaNames.Catalog);
     }
 }
