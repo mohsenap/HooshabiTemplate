@@ -32,7 +32,7 @@ public class $$Entity$$Controller : VersionedApiController
     [HttpPut("{id}")]
     [MustHavePermission(HooshabiAction.Update, HooshabiResource.$$Entity$$)]
     [OpenApiOperation("Update a $$Entity$$.", "")]
-    public async Task<ActionResult<$$KeyType$$>> UpdateAsync([ModelBinder(Name = "Update$$Entity$$Request", BinderType = typeof(UpdateDynamicModelBinder))] Update$$Entity$$Request request, $$KeyType$$ id)
+    public async Task<ActionResult<$$KeyType$$>> UpdateAsync([FromBody, ModelBinder(Name = "Update$$Entity$$Request", BinderType = typeof(UpdateDynamicModelBinder))] Update$$Entity$$Request request, $$KeyType$$ id)
     {
         return await Mediator.Send(request);
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hooshabi.Server.Shared;
 
-public class Utility
+public static class Utility
 {
     public static T ReplaceProperties<T>(T source, object model)
     {

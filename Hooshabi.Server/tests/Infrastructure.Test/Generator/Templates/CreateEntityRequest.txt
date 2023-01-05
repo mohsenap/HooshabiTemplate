@@ -1,3 +1,4 @@
+using Hooshabi.Server.Shared;
 namespace Hooshabi.Server.Application.Catalog.$$Entity$$s;
 
 public class Create$$Entity$$Request : IRequest<$$KeyType$$>
@@ -21,7 +22,7 @@ public class Create$$Entity$$RequestHandler : IRequestHandler<Create$$Entity$$Re
 
     public async Task<$$KeyType$$> Handle(Create$$Entity$$Request request, CancellationToken cancellationToken)
     {
-        var entity = new $$Entity$$();
+        var entity = Utility.ReplaceProperties(new $$Entity$$(), request);
         await _repository.AddAsync(entity, cancellationToken);
         return entity.Id;
     }
