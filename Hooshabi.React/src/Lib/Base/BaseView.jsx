@@ -27,7 +27,9 @@ class BaseView extends Component {
       var viewState = await AppManager.Request(
         this.props.router,
         {},
-        "GET"
+        "GET",
+        {},
+        this.props.view
       ).catch((error) => {
         console.log(error);
       });

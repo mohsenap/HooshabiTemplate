@@ -180,7 +180,6 @@ class GridDefaultComponent extends ParentComponent {
   }
 
   componentDidMount() {
-    
     if (this.props.reload > 0 || this.props.componentData) {
       console.log(222);
       this.LoadComponent();
@@ -200,7 +199,9 @@ class GridDefaultComponent extends ParentComponent {
       var result = await AppManager.Request(
         this.props.action,
         {},
-        this.props.method
+        this.props.method,
+        {},
+        this.props.view
       );
       this.Data = result.Data;
     }
@@ -270,7 +271,8 @@ class GridDefaultComponent extends ParentComponent {
           html: html,
         },
         "POST",
-        { responseType: "blob" }
+        { responseType: "blob" },
+        this.props.view
       ).then((res) => {
         AppManager.DownloadBlob(`data_${Date.now()}.pdf`, res);
       });
@@ -338,7 +340,7 @@ class GridDefaultComponent extends ParentComponent {
       this.Data = this.props.componentModel.Data;
       this.OldData = this.Data;
     }
-    
+
     if (this.props.reload > this.reload) {
       this.LoadComponent();
     }

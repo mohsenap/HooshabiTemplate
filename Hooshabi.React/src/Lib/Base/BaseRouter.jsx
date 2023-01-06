@@ -20,7 +20,7 @@ function BaseRouter(props) {
     <Routes>
       {AppManifest.Views.map((view) => {
         var currentRoute = view;
-        
+
         const url = currentRoute.Route;
         return (
           <Route
@@ -30,11 +30,12 @@ function BaseRouter(props) {
               <WithRouter {...props} view={view} url={url}>
                 {(props) => {
                   console.log(AppContext);
-                  
+
                   if (
                     currentRoute &&
                     currentRoute.Authorization &&
-                    (!AppContext.GetUsername() || AppContext.GetUsername().length < 1)
+                    (!AppContext.GetUsername() ||
+                      AppContext.GetUsername().length < 1)
                   ) {
                     return (
                       <Navigate
@@ -68,7 +69,6 @@ function BaseRouter(props) {
             element={
               <WithRouter {...props}>
                 {(props) => {
-                  
                   return (
                     <div>{AppContext.Translate("NotFound", "label")}!</div>
                   );
@@ -81,10 +81,14 @@ function BaseRouter(props) {
             path="/logout"
             element={
               <WithRouter {...props}>
-                {async (props) => {
-                  AppManager.removeStorage("Username");
-                  await AppManager.Request("/logout", {}, "GET");
-                  props.router.navigate("/login", { replace: true });
+                {(props) => {
+                  AppManager.removeUserStorage();
+                  //props.router.navigate("/login", { replace: true });
+                  return (
+                    <Navigate
+                      to={`/login`}
+                    />
+                  );
                 }}
               </WithRouter>
             }
@@ -135,7 +139,9 @@ function BaseRouter(props) {
   }
 
   var currentView =
-  viewMatched && viewMatched.length > 0 ? viewMatched[viewMatched.length - 1] : null;
+    viewMatched && viewMatched.length > 0
+      ? viewMatched[viewMatched.length - 1]
+      : null;
 
   if (currentRoute && currentView) {
     window.document.title = currentRoute.Title;
@@ -163,10 +169,13 @@ function BaseRouter(props) {
         (currentView &&
           currentView.Component &&
           typeof currentView.Component.DefaultRuter == "undefined") ||
-        ( currentView &&
-          currentView.Component && currentView.Component.DefaultRuter == null)
+        (currentView &&
+          currentView.Component &&
+          currentView.Component.DefaultRuter == null)
           ? MainRouter
-          : (currentView ? currentView.Component.DefaultRuter : null);
+          : currentView
+          ? currentView.Component.DefaultRuter
+          : null;
       if (process.env.REACT_APP_SERVERAPP == "true") {
         if (ViewRouter)
           return (

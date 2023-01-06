@@ -17,7 +17,7 @@ import {
 import React, { Component, Fragment } from "react";
 import { BaseComponent, ParentAppView } from "../../../AppImportReferences";
 import DefaultLayout from "../../../Layout/Default/DefaultLayout";
-import 'antd/dist/reset.css';
+import "antd/dist/reset.css";
 import "./aboutusviewcss.scss";
 import AppManager from "../../../Lib/AppManager";
 import AppContext from "../../../Lib/AppContext";
@@ -36,7 +36,7 @@ class AboutUsView extends ParentAppView {
     this.LoadSchoolInfo();
   }
   LoadSchoolInfo = async () => {
-    var setup = await AppManager.Request("setup/all", {}, "GET");
+    var setup = await AppManager.Request("setup/all", {}, "GET", {}, this);
     if (setup && setup.length > 0) {
       this.setState({ Info: setup[0] });
     }
@@ -44,7 +44,7 @@ class AboutUsView extends ParentAppView {
   ViewBody = () => {
     return (
       <Fragment>
-        <Descriptions  bordered>
+        <Descriptions bordered>
           {this.state.Info &&
             Object.keys(this.state.Info)
               .filter((t) => t != "Id")

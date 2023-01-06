@@ -4,8 +4,10 @@ import LoginView from "./Views/Login/LoginView";
 import AboutUsView from "./Views/AboutUs/AboutUsView";
 import AdminView from "./Views/Admin/AdminView";
 import BrandView from "./Views/Brand/BrandView";
-
+import Entity1View from "./Views/Entity1/Entity1View";
 //References//
+
+
 class AppManifest {
   static AppInfo = {
     AppId: "A5A5EAA5-DD57-40CC-8735-CD8EABECB66D",
@@ -26,7 +28,9 @@ class AppManifest {
       Component: AboutUsView,
     },
     { Name: "Admin", Route: "admin", Authorize: false, Component: AdminView },
-    //Views//
+    { Name: "Entity1", Route:  "entity1", Authorize: false, Component: Entity1View },
+//Views//
+
   ];
 }
 

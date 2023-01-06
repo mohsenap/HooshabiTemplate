@@ -80,12 +80,14 @@ class FormDefaultComponent extends ParentComponent {
     this.state.Formkey = this.props.formkey;
     this.state.FormDataLoaded = false;
     var result = {};
-    
+
     if (this.props.formkey && this.props.formkey > "0") {
       result = await AppManager.Request(
         this.props.get || this.props.action,
         {},
-        "GET"
+        "GET",
+        {},
+        this.props.view
       );
     }
 
@@ -93,7 +95,7 @@ class FormDefaultComponent extends ParentComponent {
     if (this.form.current) this.form.current.resetFields();
 
     this.defaultValue = result;
-    
+
     Object.keys(result).forEach((element) => {
       if (
         this.formModel[element] &&
@@ -142,7 +144,6 @@ class FormDefaultComponent extends ParentComponent {
         icon: <ExclamationCircleOutlined />,
         content: AppContext.Translate("AreYouSure", "label"),
         async onOk() {
-          
           var result = await deleteForm.OnFinishBody(values);
         },
         onCancel() {
@@ -196,7 +197,7 @@ class FormDefaultComponent extends ParentComponent {
     }
 
     var result = await AppManager.Request(url, values, this.props.formState);
-    
+
     if (this.DeleteModal) {
       this.DeleteModal.destroy();
       this.DeleteModal = null;
@@ -213,7 +214,6 @@ class FormDefaultComponent extends ParentComponent {
       return;
     }
 
-   
     this.ClearState();
     this.ReloadForm();
     if (
@@ -226,8 +226,6 @@ class FormDefaultComponent extends ParentComponent {
         this.props.formState
       );
     }
-
-
   }
 
   OnClearForm() {
@@ -254,17 +252,21 @@ class FormDefaultComponent extends ParentComponent {
         this.LoadedLookups.push(reference.Model);
 
         var api = reference.API ? reference.API : "lookup";
-        AppManager.Request(`/${reference.Model}/${api}`, {}, "GET").then(
-          (res) => {
-            if (res && res.length > 0) {
-              this.LoadedLookupsData[reference.Model] = res;
-              var lookupState = {};
-              var key = reference.Model + "_" + reference.Field;
-              lookupState[key] = res;
-              this.setState(lookupState);
-            }
+        AppManager.Request(
+          `/${reference.Model}/${api}`,
+          {},
+          "GET",
+          {},
+          this.props.view
+        ).then((res) => {
+          if (res && res.length > 0) {
+            this.LoadedLookupsData[reference.Model] = res;
+            var lookupState = {};
+            var key = reference.Model + "_" + reference.Field;
+            lookupState[key] = res;
+            this.setState(lookupState);
           }
-        );
+        });
       } else if (
         this.LoadedLookupsData &&
         this.LoadedLookupsData[reference.Model]

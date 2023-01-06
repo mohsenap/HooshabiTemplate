@@ -84,13 +84,14 @@ class FileUploaderDefaultComponent extends Component {
   };
 
   LoadAttachments() {
-    
     if (!this.state.LinksLoaded) {
       if (!this.props.refEntity || !this.props.refField) return;
       AppManager.Request(
         `/api/attachmentlist/${this.props.refEntity}/${this.props.refField}/${this.props.value}`,
         {},
-        "GET"
+        "GET",
+        {},
+        this.props.view
       ).then((res) => {
         this.setState({ LinksLoaded: true, Links: res });
       });
@@ -100,7 +101,6 @@ class FileUploaderDefaultComponent extends Component {
   }
 
   async DeleteAttachment(e, attachmentId) {
-    
     var id = attachmentId ? attachmentId : this.props.value;
     var result = await AppManager.Request(
       `api/attachment/DeleteAttachment/${
@@ -116,7 +116,6 @@ class FileUploaderDefaultComponent extends Component {
       this.props.parentComponent.setState({ ...item });
       this.props.form.setFieldsValue({ ...item });
     } else {
-     
     }
   }
 
@@ -166,11 +165,11 @@ class FileUploaderDefaultComponent extends Component {
             )}
           </>
         )}
-        {this.props.value && this.props.value.length > 0 &&
+        {this.props.value &&
+          this.props.value.length > 0 &&
           this.props.multipleUpload == true &&
           this.LoadAttachments() &&
           this.state.Links.map((z) => {
-            
             return (
               <div>
                 <Link

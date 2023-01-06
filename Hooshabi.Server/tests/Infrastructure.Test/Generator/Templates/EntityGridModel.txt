@@ -1,0 +1,13 @@
+import React from "react";
+import moment from 'moment';
+import AppContext from "../../Lib/AppContext";;
+
+const __EntityName__GridModel = () => {
+    var ColumnModel = [
+        __Properties__
+    ];
+    return ColumnModel;
+}
+
+
+export default __EntityName__GridModel;

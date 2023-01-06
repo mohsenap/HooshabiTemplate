@@ -14,7 +14,7 @@ class ComboBoxDefaultComponent extends ParentComponent {
   async LoadComponent() {
     if (this.props.action) {
       
-      this.Data = await AppManager.Request(this.props.view.props.router, {}, 'GET');
+      this.Data = await AppManager.Request(this.props.view.props.router, {}, 'GET',{}, this.props.view);
       //this.OldData = this.Data;
       
       this.setState({ key: Math.random() });

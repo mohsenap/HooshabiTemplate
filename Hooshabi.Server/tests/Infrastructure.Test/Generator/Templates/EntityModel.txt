@@ -1,0 +1,16 @@
+import React, { Component } from "react";
+import { Form, Input, Select, InputNumber, Switch, Radio, Slider, Button, Upload, Rate, Checkbox, DatePicker, TimePicker } from 'antd';
+import { faker } from '@faker-js/faker';
+import moment from 'moment';
+import AppContext from "../../Lib/AppContext";
+
+const __EntityName__Model = () => {
+    return {
+   
+    __Properties__
+    
+}
+}
+
+
+export default __EntityName__Model;

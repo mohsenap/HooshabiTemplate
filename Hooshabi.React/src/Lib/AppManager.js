@@ -60,10 +60,19 @@ class AppManager {
     localStorage.removeItem(key);
   }
 
+  removeUserStorage() {
+    localStorage.removeItem("Username");
+    localStorage.removeItem("Token");
+    localStorage.removeItem("RefreshToken");
+    localStorage.removeItem("RefreshTokenExpiryTime");
+
+  }
+
   GetAPIVersion() {
     return process.env.REACT_APP_APIVERSION;
   }
-  async Request(router, data, method, options) {
+  async Request(router, data, method, options, view) {
+    debugger;
     var response = {};
     var url = "";
     if (typeof router != "string") {
@@ -91,6 +100,7 @@ class AppManager {
         config.method = "GET";
         if (data && Object.keys(data).length > 0) config.params = data;
         response = await this.client.get(url, config).catch((error) => {
+          this.logoutUnAuthorizeRequest(error, view);
           console.log(error);
           this.ShowNotify(
             error.stack ? error.stack : error,
@@ -100,6 +110,7 @@ class AppManager {
         break;
       case "POST":
         response = await this.client.post(url, data, config).catch((error) => {
+          this.logoutUnAuthorizeRequest(error, view);
           console.log(error);
           this.ShowNotify(
             error.stack ? error.stack : error,
@@ -109,6 +120,7 @@ class AppManager {
         break;
       case "PUT":
         response = await this.client.put(url, data, config).catch((error) => {
+          this.logoutUnAuthorizeRequest(error, view);
           console.log(error);
           this.ShowNotify(
             error.stack ? error.stack : error,
@@ -119,6 +131,7 @@ class AppManager {
       case "DELETE":
         config.data = data;
         response = await this.client.delete(url, config).catch((error) => {
+          this.logoutUnAuthorizeRequest(error, view);
           console.log(error);
           this.ShowNotify(
             error.stack ? error.stack : error,
@@ -130,6 +143,16 @@ class AppManager {
         return false;
     }
     return this.processResponse(router, response, method);
+  }
+
+  logoutUnAuthorizeRequest(error, view){
+    debugger;
+    if(error.response.status == 401){
+      if(view && view.props && view.props.router){
+        view.props.router.navigate("/logout", { replace: true });
+        return;
+      }
+    }
   }
 
   ShowNotify(msg, type) {

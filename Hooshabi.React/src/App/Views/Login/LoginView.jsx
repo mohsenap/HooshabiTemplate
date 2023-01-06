@@ -18,7 +18,7 @@ import {
 import React, { Component, Fragment } from "react";
 import { BaseComponent, ParentAppView } from "../../../AppImportReferences";
 import DefaultLayout from "../../../Layout/Default/DefaultLayout";
-import 'antd/dist/reset.css';
+import "antd/dist/reset.css";
 import "./loginviewcss.scss";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import AppManager from "../../../Lib/AppManager";
@@ -47,13 +47,22 @@ class LoginView extends ParentAppView {
 
   onFinish = async (values) => {
     if (values.Email && values.Password) {
-      var result = await AppManager.Request("api/tokens", values, "POST");
-      
+      var result = await AppManager.Request(
+        "api/tokens",
+        values,
+        "POST",
+        {},
+        this
+      );
+
       if (result) {
-        AppManager.setStorage("Username",  values.Email);
+        AppManager.setStorage("Username", values.Email);
         AppManager.setStorage("Token", result.Token);
         AppManager.setStorage("RefreshToken", result.RefreshToken);
-        AppManager.setStorage("RefreshTokenExpiryTime", result.RefreshTokenExpiryTime);
+        AppManager.setStorage(
+          "RefreshTokenExpiryTime",
+          result.RefreshTokenExpiryTime
+        );
         //}
         if (
           this.props.router &&

@@ -40,23 +40,25 @@ class TransferDefaultComponent extends ParentComponent {
   };
 
   LoadComponentData(parentId) {
-    AppManager.Request(this.props.load + `/${parentId}`, {}, "GET").then(
-      (res) => {
-        if (res.Source) {
-          
-          this.setState({
-            data: res.Source,
-            targetKeys: res.Destination.map((t) => t.key),
-            loaded: false,
-          });
-        }
+    AppManager.Request(
+      this.props.load + `/${parentId}`,
+      {},
+      "GET",
+      {},
+      this.props.view
+    ).then((res) => {
+      if (res.Source) {
+        this.setState({
+          data: res.Source,
+          targetKeys: res.Destination.map((t) => t.key),
+          loaded: false,
+        });
       }
-    );
+    });
   }
 
   componentDidMount() {
     if (!this.state.loaded) {
-      
       this.state.loaded = true;
       this.LoadComponentData(0);
     }
@@ -72,7 +74,6 @@ class TransferDefaultComponent extends ParentComponent {
           }}
           titles={this.props.titles}
           className="_appcustomtransfer"
-         
           showSearch
           dataSource={this.state.data}
           targetKeys={this.state.targetKeys}
