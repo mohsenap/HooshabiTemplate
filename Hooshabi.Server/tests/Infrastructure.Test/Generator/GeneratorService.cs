@@ -55,7 +55,7 @@ public class GeneratorService : TestBed<TestFixture>
             var reactModelDirectory = parentRootFolder + @"\src\App\Model";
             var reactAppManifestPath = parentRootFolder + @"\src\App\AppManifest.js";
 
-
+            
             //DTO
             var dtoFile = folder + "\\Generator\\Templates\\EntityDto.txt";
             var dtoFileContent = File.ReadAllText(dtoFile).Replace("$$Entity$$", name).Replace("$$Properties$$", propertiesString);
